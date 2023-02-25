@@ -78,7 +78,7 @@ mysql> REVOKE [type of permission] ON [database name].[table name] FROM '[userna
 mysql> DROP USER '[username]'@'localhost';
 ```
 #### Step 19: Allow remote connections to MySQL
-Open /etc/mysql/my.cnf. (Or /etc/mysql/mysql.conf.d/mysqld.cnf if later than 5.7) Comment this following line: bind-address = 127.0.0.1. Run command sudo service mysql restart. Enter mysql shell, execute the following command: GRANT ALL PRIVILEGES ON . TO '[username]'@'[ip]' IDENTIFIED BY '[password]' WITH GRANT OPTION. If all ip addresses are allowed, replace [ip] to %.
+## Open /etc/mysql/my.cnf. (Or /etc/mysql/mysql.conf.d/mysqld.cnf if later than 5.7) Comment this following line: bind-address = 127.0.0.1. Run command sudo service ## mysql restart. Enter mysql shell, execute the following command: GRANT ALL PRIVILEGES ON . TO '[username]'@'[ip]' IDENTIFIED BY '[password]' WITH GRANT OPTION. If ## all ip addresses are allowed, replace [ip] to %.
 ## Step 20: Fix "MySQL ERROR 1819 (HY000): Your password does not satisfy the current policy requirements"
 ```
 mysql> SHOW VARIABLES LIKE 'validate_password%';
