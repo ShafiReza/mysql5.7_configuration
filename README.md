@@ -1,6 +1,6 @@
 # mysql5.7_configuration
 
-##Step 1: Download mysql-apt-config package
+#Step 1: Download mysql-apt-config package
 ```
 wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
 ```
