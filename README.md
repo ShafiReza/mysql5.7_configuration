@@ -79,7 +79,7 @@ mysql> DROP USER '[username]'@'localhost';
 ```
 #### Step 19: Allow remote connections to MySQL
 Open /etc/mysql/my.cnf. (Or /etc/mysql/mysql.conf.d/mysqld.cnf if later than 5.7) Comment this following line: bind-address = 127.0.0.1. Run command sudo service mysql restart. Enter mysql shell, execute the following command: GRANT ALL PRIVILEGES ON . TO '[username]'@'[ip]' IDENTIFIED BY '[password]' WITH GRANT OPTION. If all ip addresses are allowed, replace [ip] to %.
-##Step 20: Fix "MySQL ERROR 1819 (HY000): Your password does not satisfy the current policy requirements"
+## Step 20: Fix "MySQL ERROR 1819 (HY000): Your password does not satisfy the current policy requirements"
 ```
 mysql> SHOW VARIABLES LIKE 'validate_password%';
 mysql> create user 'ostechnix'@'localhost' identified by 'Password123#@!';
@@ -90,19 +90,19 @@ mysql> SHOW VARIABLES LIKE 'validate_password%';
 If the password policy doesn't change, exit from the mysql prompt and restart mysql service from your Terminal window:
 sudo systemctl restart mysql
 ```
-##Step 21:Configure a firewall: Use a firewall to restrict access to MySQL from outside your network. You can use the ufw firewall on Ubuntu by running the following commands:
+## Step 21:Configure a firewall: Use a firewall to restrict access to MySQL from outside your network. You can use the ufw firewall on Ubuntu by running the following commands:
 ```
 sudo ufw allow mysql
 sudo ufw enable
 ```
-##Step 22:Create a new user for application access: Instead of using the root user for all database access, create a new user with limited privileges for each ##application that needs database access. This will improve security and limit potential damage in case of a security breach.
+## Step 22:Create a new user for application access: Instead of using the root user for all database access, create a new user with limited privileges for each ##application that needs database access. This will improve security and limit potential damage in case of a security breach.
 ##To create a new user with limited privileges, connect to the MySQL server as root and run the following commands:
 ```
 CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
 GRANT SELECT, INSERT, UPDATE, DELETE ON database_name.* TO 'newuser'@'localhost';
 FLUSH PRIVILEGES;
 ```
-##Step 23:Backup your data: Regularly backup your MySQL data to ensure that you can recover from data loss or corruption. You can use the mysqldump utility to backup your MySQL databases. For example, to backup the database named 'database_name', run the following command:
+## Step 23:Backup your data: Regularly backup your MySQL data to ensure that you can recover from data loss or corruption. You can use the mysqldump utility to backup your MySQL databases. For example, to backup the database named 'database_name', run the following command:
 ##Export:
 ```
 mysqldump -u username -p database_name > backup.sql
